@@ -1,0 +1,20 @@
+{
+  "name": "20240220",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lowdb.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon lowdb.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "lowdb": "^7.0.1",
+    "moment": "^2.30.1",
+    "string": "^3.3.3"
+  }
+}
