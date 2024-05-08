@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    td>i[data-active='lock_outline'] {
+      color: red;
+    }
+
+    td>i[data-active='lock_open'] {
+      color: green;
+    }
+
+    td>i {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% for(let user of users){ %>
+            <tr data-id="<%= user.id %>">
+              <td>
+                <%= user.firstName %>
+              </td>
+              <td>
+                <%= user.lastName %>
+              </td>
+              <td><i data-active="<%= user.active ? " lock_open" : "lock_outline" %>" class="material-icons active"><%=
+                    user.active ? "lock_open" : "lock_outline" %></i></td>
+              <td>
+                <%= user.email %>
+              </td>
+              <td><i class="material-icons edit">edit</i></td>
+              <td><i class="material-icons">delete_forever</i></td>
+            </tr>
+            <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Editar</h4>
+        <form id="form" action="users" method="POST" class="col s12">
+          <input type="hidden" id="id" name="id">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" name="firstName" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" name="lastName" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" name="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" id="editButton" class="modal-close waves-effect waves-green btn-flat">Salvar</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+
+      for (let element of document.getElementsByClassName('edit')) {
+        element.addEventListener('click', function () {
+          const row = this.parentElement.parentElement;
+          const tds = row.getElementsByTagName('td');
+          const firstName = tds[0].innerText;
+          const lastName = tds[1].innerText;
+          const email = tds[3].innerText;
+          const id = row.dataset.id;
+          document.getElementById('id').value = id;
+          document.getElementById('first_name').value = firstName;
+          document.getElementById('last_name').value = lastName;
+          document.getElementById('email').value = email;
+          M.updateTextFields();
+          instances[0].open();
+        });
+      }
+
+      for (let element of document.getElementsByClassName('active')) {
+        element.addEventListener('click', function () {
+          const row = this.parentElement.parentElement;
+          const id = row.dataset.id;
+
+          const form = new FormData();
+          form.append("active", this.dataset.active == 'lock_open' ? 'true' : 'false');
+          form.append("id", "xpto");
+
+          fetch("users", {
+            method: "POST", body: form
+          })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+            })
+            .catch(error => {
+              console.log(error);
+            })
+        });
+      }
+
+
+      document.getElementById('editButton').addEventListener('click', () => {
+        document.getElementById('form').submit();
+      });
+    });
+  </script>
+</body>
+
+</html>

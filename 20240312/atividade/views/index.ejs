@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <form id="form" action="form" method="POST" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="first_name" name="firstName" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" name="lastName" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" name="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" name="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <a id="submit" class="waves-effect waves-light btn"><i class="material-icons right">save</i>Enviar</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    window.addEventListener('load',()=>{
+      console.log('window load');
+      document.getElementById('submit').addEventListener("click",()=>{
+        console.log('submit clicked');
+        document.getElementById('form').submit();
+      })
+    })
+  </script>
+</body>
+
+</html>

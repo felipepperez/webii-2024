@@ -1,0 +1,94 @@
+{
+    "users": [
+        {
+            "id": "4e69ff3c-42f3-410d-9c5f-d50c1b1d75fa",
+            "firstName": "Felipe",
+            "lastName": "Teste",
+            "email": "felipe.perez@unigran.br",
+            "token": "b3c16ab9-0146-4727-919b-a9f0169b7d90",
+            "active": true
+        },
+        {
+            "id": "27bf81bd-2db0-4e76-af0e-6ed5bbf85331",
+            "firstName": "Felipe",
+            "lastName": "Perez",
+            "email": "fpproducoes@gmail.com",
+            "token": "e10540bf-55d0-4924-819e-e71669dd578e",
+            "active": false
+        },
+        {
+            "id": "9465bf24-a8d5-4cb5-b200-ad32411bc116",
+            "firstName": "f",
+            "lastName": "f",
+            "email": "f",
+            "token": "99d1063e-0ae8-4fb6-828f-fd50f1ee7c29",
+            "active": false
+        },
+        {
+            "id": "084164ad-1f7d-49a4-a0a8-dc11e6fdd452",
+            "firstName": "e",
+            "lastName": "e",
+            "email": "e",
+            "token": "0a7c8252-a77e-40d3-bad9-9d8047d40eb1",
+            "active": false
+        },
+        {
+            "id": "727eebb7-0e1e-492b-9084-a2424c750bc1",
+            "firstName": "Felipe",
+            "lastName": "Perez",
+            "email": "fpproducoes@gmail.com",
+            "token": "31ec3f34-25c8-419a-9821-974b58806d3e",
+            "active": false
+        },
+        {
+            "id": "3ab22515-32ea-4d43-8085-782462edb0b3",
+            "firstName": "Felipe",
+            "lastName": "Perez",
+            "email": "fpproducoes@gmail.com",
+            "token": "83ea946e-28df-4c5b-b2ef-8590d8d3b94e",
+            "active": false
+        },
+        {
+            "id": "e97f53a2-1ee4-4f0d-a7bc-6a6dbd7b1b57",
+            "firstName": "Felipe",
+            "lastName": "Perez",
+            "email": "fpproducoes@gmail.com",
+            "active": true
+        },
+        {
+            "id": "c8ce64e6-f44b-4174-a744-e4cd20f395b1",
+            "firstName": "Felipe",
+            "lastName": "Silva",
+            "email": "teste@teste.com.br",
+            "token": "7a894765-c525-49b0-baca-9823859be703",
+            "active": false
+        },
+        {
+            "id": "2d3ca027-171b-44df-a19e-600f5a25f8b5",
+            "firstname": "string",
+            "lastname": "string",
+            "email": "string",
+            "password": "$2a$10$wlHYrYVmMk91mb3dsoogDeMuCSBanffxE.Y3XVFCiXI0cJhF.7q8.",
+            "token": "32078429-069a-4a19-a3f5-19a9c16b8a5e",
+            "active": false
+        },
+        {
+            "id": "08ffcd4e-4f37-4da5-a5c7-5c9625087137",
+            "firstname": "string",
+            "lastname": "string",
+            "email": "string",
+            "password": "$2a$10$QsvPetChr3U/XgEf5W.ogufMSbT0VtRy73PX3vhQsGbgoGkkpkLqq",
+            "token": "786b554e-22cc-4deb-a38b-7c9fe60bb93b",
+            "active": false
+        },
+        {
+            "id": "0dc1991e-e76f-488b-9714-d4334fd31e2b",
+            "firstname": "string",
+            "lastname": "string",
+            "email": "string",
+            "password": "$2a$10$Uh5jYUYLKb8aguzMFJw/Cu4frkJLERtAWDPyamDLdPUBTYIrY1c/6",
+            "token": "fe581a88-e23a-43bc-9f87-81e06721f832",
+            "active": false
+        }
+    ]
+}
