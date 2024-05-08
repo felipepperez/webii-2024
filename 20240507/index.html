@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <a id="send_data" class="waves-effect waves-light btn"><i class="material-icons left">send</i>
+                            Enviar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        const first_name = document.getElementById('first_name');
+        const last_name = document.getElementById('last_name');
+        const button = document.getElementById('send_data');
+
+        const table = document.getElementById('table_body');
+
+        button.addEventListener('click', () => {
+            socket.emit('data', { first_name: first_name.value, last_name: last_name.value });
+        });
+
+        socket.on('user', (data) => {
+            inserirUser(data);
+        })
+
+        socket.on('users', (data) => {
+            for(let user of data){
+                inserirUser(user);
+            }
+        })
+
+        function inserirUser(user){
+            const table_row = document.createElement('tr');
+
+            let table_col = document.createElement('td');
+            table_col.innerHTML = user.first_name;
+            table_row.appendChild(table_col);
+
+            table_col = document.createElement('td');
+            table_col.innerHTML = user.last_name
+            table_row.appendChild(table_col);
+
+            table.appendChild(table_row);
+        }
+    </script>
+</body>
+
+</html>
